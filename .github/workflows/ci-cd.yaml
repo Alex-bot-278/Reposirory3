@@ -1,0 +1,13 @@
+﻿name: CI/CD Pipeline
+on:
+  push:
+    branches: ["first-iteration-9"]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v4
+        with:
+          go-version: "1.22"
+      - run: go test -v ./...
